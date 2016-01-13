@@ -1,5 +1,19 @@
 <?php
+namespace Workshop\Card;
+
 class Card {
+    
+    private $cardId;
+    private $boardIdFromCard;
+    private $cardStateType;
+    private $cardTeamId;
+    private $cardOwners = array();
+    private $cardDetails = array();
+    private $stoppedCardReasons = array();
+    private $sqlQuery;
+    private $isCardViewType;
+    private $isCardPullType;
+    
     public function checkDeadline($deadline) {
         $deadlineDate = $deadline;
         $today = new DateTime ();
