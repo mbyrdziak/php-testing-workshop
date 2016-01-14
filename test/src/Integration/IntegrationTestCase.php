@@ -8,6 +8,10 @@ class IntegrationTestCase extends \PHPUnit_Framework_TestCase {
      */
     protected $db;
     
+    /**
+     * @before
+     */
+    
     protected function setUp() {
         $db = new \PDO('sqlite::memory:');
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -31,5 +35,11 @@ class IntegrationTestCase extends \PHPUnit_Framework_TestCase {
         
         $this->db = $db;
     }
+    
+    /**
+     * @test
+     */
+    
+    
 }
 
