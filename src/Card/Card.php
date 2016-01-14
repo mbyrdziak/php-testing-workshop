@@ -14,14 +14,14 @@ class Card {
     private $isCardViewType;
     private $isCardPullType;
     
-    public function checkDeadline($deadline) {
+    public function checkDeadline($deadline){
         $deadlineDate = $deadline;
-        $today = new DateTime ();
+        $today = new \DateTime ();
         $warningText = null;
         if ($deadline == "0000-00-00" || $deadline == null)
             $deadlineDate = "-";
         if ($deadlineDate != "-") {
-            $diff = $today->diff(new DateTime($deadlineDate));
+            $diff = $today->diff(new \DateTime($deadlineDate));
             $diff_value = (int) $diff->format('%R%a');
             if ($diff_value == 0)
                 $warningText = "Warning: the deadline date is $deadlineDate";
