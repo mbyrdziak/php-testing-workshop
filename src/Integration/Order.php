@@ -16,7 +16,7 @@ class Order {
         $this->paidAmount = $paidAmount;
         $this->shippingAmount = $shippingAmount;
     }
-
+    
     public function getId() {
         return $this->id;
     }
