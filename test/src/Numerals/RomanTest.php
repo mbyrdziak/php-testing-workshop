@@ -7,7 +7,7 @@ class RomanTest extends \PHPUnit_Framework_TestCase {
      * @test
      * @dataProvider arabicProvider
      */
-    public function arabicToRoman($input, $expected){
+    public function arabicToRoman(){
         $roman = new Roman();
         $result = $roman->arabicToRoman($input);
         $this->assertEquals($expected, $result, ":D");
