@@ -20,7 +20,7 @@ class AddOrderService {
      * @return integer order id
      */
     public function execute($pickupAddress, $shippingAddress) {
-        $order = new Order(null, $pickupAddress, $shippingAddress, 0, 0);
+        $order = new Order($pickupAddress, $shippingAddress);
         return $this->repo->persist($order);
     }
 }
