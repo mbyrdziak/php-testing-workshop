@@ -8,8 +8,8 @@ class Order {
     private $paidAmount;
     private $shippingAmount;
     private $items = array();
-    
-    public function __construct($id, $pickupAddress, $shippingAddress, $paidAmount, $shippingAmount) {
+   
+    public function __construct($id, $pickupAddress, $shippingAddress, $paidAmount=0, $shippingAmount=0) {
         $this->id = $id;
         $this->pickupAddress = $pickupAddress;
         $this->shippingAddress = $shippingAddress;
@@ -44,7 +44,7 @@ class Order {
     public function addItem($item) {
         $this->items[] = $item;
     }
-    
+   
     public function setPaidAmount($paidAmount) {
         $this->paidAmount = $paidAmount;
     }
@@ -54,4 +54,3 @@ class Order {
     }
 
 }
-
