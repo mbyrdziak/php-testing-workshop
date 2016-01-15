@@ -16,31 +16,31 @@ class Order {
         $this->paidAmount = $paidAmount;
         $this->shippingAmount = $shippingAmount;
     }
-
-    public function getId() {
+    
+    function getId() {
         return $this->id;
     }
 
-    public function getPickupAddress() {
+    function getPickupAddress() {
         return $this->pickupAddress;
     }
 
-    public function getShippingAddress() {
+    function getShippingAddress() {
         return $this->shippingAddress;
     }
 
-    public function getPaidAmount() {
+    function getPaidAmount() {
         return $this->paidAmount;
     }
 
-    public function getShippingAmount() {
+    function getShippingAmount() {
         return $this->shippingAmount;
     }
 
-    public function getItems() {
+    function getItems() {
         return $this->items;
     }
-
+    
     public function addItem($item) {
         $this->items[] = $item;
     }
@@ -52,6 +52,5 @@ class Order {
     public function setShippingAmount($shippingAmount) {
         $this->shippingAmount = $shippingAmount;
     }
-
 }
 
