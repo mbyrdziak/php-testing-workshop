@@ -17,17 +17,33 @@ use Workshop\Integration\AddOrderService;
  */
 class OrderRepositoryUnitTest extends \PHPUnit_Framework_TestCase {
     //put your code here
-    
+
     /**
-* @test
-*/
-public function shouldTestStub(){
+     * @test
+     */
+    public function shouldTestStub() {
         $repo = new OrderRepositoryStub();
         $service = new AddOrderService($repo);
         $orderId = $service->execute("adres1", "Adres2");
         $result = $repo->findById($orderId);
+
+        $this->assertEquals("adres1", $result->getPickupAddress());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldTestWithMock(){
+        $orderRepositoryMock = $this->getMockBuilder('\Workshop\Integration\OrderRepository')
+                ->disableOriginalConstructor()->getMock();
         
-        $this->assertEquals("adres1", $result->getPickupAddress());   
-}
+        $service = new AddOrderService($orderRepositoryMock);
         
+        $order = new \Workshop\Integration\Order(null, "pickup_address", "shipping_address");
+        $orderRepositoryMock->expects($this->once())
+                ->method("persist")
+                ->with($this->equalTo($order));
+        
+        $service->execute("pickup_address", "shipping_address");
+    }
 }
