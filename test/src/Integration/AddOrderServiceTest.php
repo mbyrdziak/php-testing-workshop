@@ -9,15 +9,28 @@
 namespace Test\Integration;
 
 class AddOrderServiceTest extends IntegrationTestCase {
-    //put your code here
 
     /**
      * @test
      */
-    public function addOrderService() {
-        $db = $this->setUp();
-        $order = new \Workshop\Integration\AddOrderService($db);
-        $order->execute("pickupAdress", "shippingAdress");
+    public function shouldCreateNewOrder() {
+//        $order = new \Workshop\Integration\AddOrderService($this->db);
+//        $orderId = $order->execute("pickupAdress1", "shippingAdress1");
+//        $item = new \Workshop\Integration\AddOrderItemService($this->db);
+//        $item->execute($orderId, "title", 6, 6, 6);
+//        
+//        $orderRepository = new \Workshop\Integration\OrderRepository($this->db);
+//        $orderObject = $orderRepository->findOrderById($orderId);
+//      
+//        $this->assertEquals("title", $orderObject->getItems()[0]->getItemTitle());
+
+        $orderRepository = new \Workshop\Integration\OrderRepository($this->db);
+        $order = new \Workshop\Integration\AddOrderService($orderRepository);
+        $orderId = $order->execute("pickupAdress1", "shippingAdress1");
+        $item = new \Workshop\Integration\AddOrderItemService($this->db);
+        $item->execute($orderId, "title", 6, 6, 6);
+        $orderObject = $orderRepository->findOrderById($orderId);
+        $this->assertEquals("title", $orderObject->getItems()[0]->getItemTitle());
     }
 
 }
