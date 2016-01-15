@@ -9,7 +9,7 @@ class Order {
     private $shippingAmount;
     private $items = array();
     
-    public function __construct($id, $pickupAddress, $shippingAddress, $paidAmount, $shippingAmount) {
+    public function __construct($id, $pickupAddress, $shippingAddress, $paidAmount=0, $shippingAmount=0) {
         $this->id = $id;
         $this->pickupAddress = $pickupAddress;
         $this->shippingAddress = $shippingAddress;

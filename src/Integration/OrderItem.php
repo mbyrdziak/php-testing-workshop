@@ -9,7 +9,7 @@ class OrderItem {
     private $paidAmount;
     private $shippingAmount;
  
-    public function __construct($id, $orderId, $itemTitle, $quantity, $paidAmount, $shippingAmount) {
+    function __construct($id, $orderId, $itemTitle, $quantity, $paidAmount, $shippingAmount) {
         $this->id = $id;
         $this->orderId = $orderId;
         $this->itemTitle = $itemTitle;
@@ -18,29 +18,54 @@ class OrderItem {
         $this->shippingAmount = $shippingAmount;
     }
 
-    public function getId() {
+    function getId() {
         return $this->id;
     }
 
-    public function getOrderId() {
+    function getOrderId() {
         return $this->orderId;
     }
 
-    public function getItemTitle() {
+    function getItemTitle() {
         return $this->itemTitle;
     }
 
-    public function getQuantity() {
+    function getQuantity() {
         return $this->quantity;
     }
 
-    public function getPaidAmount() {
+    function getPaidAmount() {
         return $this->paidAmount;
     }
 
-    public function getShippingAmount() {
+    function getShippingAmount() {
         return $this->shippingAmount;
     }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setOrderId($orderId) {
+        $this->orderId = $orderId;
+    }
+
+    function setItemTitle($itemTitle) {
+        $this->itemTitle = $itemTitle;
+    }
+
+    function setQuantity($quantity) {
+        $this->quantity = $quantity;
+    }
+
+    function setPaidAmount($paidAmount) {
+        $this->paidAmount = $paidAmount;
+    }
+
+    function setShippingAmount($shippingAmount) {
+        $this->shippingAmount = $shippingAmount;
+    }
+
 
 
 }
